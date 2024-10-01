@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Statistics</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Daily Statistics of Driving License Tests</h1>
+
+    <% if (statistics.length > 0) { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Total Tests Conducted</th>
+                    <th>Passed Tests</th>
+                    <th>Failed Tests</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% statistics.forEach(stat => { %>
+                    <tr>
+                        <td><%= stat.date.toLocaleDateString() %></td>
+                        <td><%= stat.totalTests %></td>
+                        <td><%= stat.passedTests %></td>
+                        <td><%= stat.failedTests %></td>
+                    </tr>
+                <% }); %> 
+            </tbody> 
+        </table> 
+    <% } else { %> 
+        <p>No data available for today.</p> 
+    <% } %>
+
+    <a href="/">Back to Form</a> 
+</body> 
+</html> 

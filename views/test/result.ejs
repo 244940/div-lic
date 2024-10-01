@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Test Results for <%= tester.first_name %> <%= tester.last_name %></h1>
+
+    <h2>Physical Test Status: <%= testResult.physical_test_status %></h2>
+    <% if (testResult.physical_test_status === 'failed') { %>
+        <p>You did not pass the physical test.</p>
+    <% } else { %>
+        <p>You passed the physical test!</p>
+    <% } %>
+
+    <h2>Theory Test Score: <%= testResult.theory_test_score %></h2>
+    <% if (testResult.theory_test_score >= 120) { %>
+        <p>You passed the theory test!</p>
+    <% } else { %>
+        <p>You did not pass the theory test.</p>
+    <% } %>
+
+    <h2>Practical Test Status: <%= testResult.practical_test_status %></h2>
+
+    <% if (testResult.overall_status === 'passed') { %>
+        <h3>Status: Passed the Driving License Test!</h3>
+    <% } else { %>
+        <h3>Status: Did not pass the Driving License Test.</h3>
+    <% } %>
+
+    <a href="/">Back to Form</a>
+</body>
+</html>
